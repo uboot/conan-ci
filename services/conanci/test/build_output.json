@@ -1,0 +1,59 @@
+{
+  "error": false,
+  "installed": [
+    {
+      "recipe": {
+        "id": "hello/1.2.3#75c35b55d1d827bb103def1f41d8348f6bdfee78",
+        "downloaded": false,
+        "exported": true,
+        "error": null,
+        "remote": null,
+        "time": "2021-05-03T20:40:16.434902",
+        "dependency": false,
+        "name": "hello",
+        "version": "1.2.3",
+        "user": null,
+        "channel": null
+      },
+      "packages": [
+        {
+          "id": "cda61897af86d277c61b93fa40c92da744abdf33",
+          "downloaded": false,
+          "exported": false,
+          "error": null,
+          "remote": null,
+          "time": "2021-05-03T20:40:18.971494",
+          "built": true,
+          "cpp_info": {
+            "includedirs": [
+              "include"
+            ],
+            "libdirs": [
+              "lib"
+            ],
+            "resdirs": [
+              "res"
+            ],
+            "bindirs": [
+              "bin"
+            ],
+            "builddirs": [
+              ""
+            ],
+            "frameworkdirs": [
+              "Frameworks"
+            ],
+            "libs": [
+              "hello"
+            ],
+            "rootpath": "/home/matz/.conan/data/hello/1.2.3/_/_/package/cda61897af86d277c61b93fa40c92da744abdf33",
+            "version": "1.2.3",
+            "description": "<Description of Hello here>",
+            "filter_empty": true,
+            "configs": {}
+          }
+        }
+      ]
+    }
+  ]
+}

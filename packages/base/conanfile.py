@@ -1,8 +1,8 @@
 from conans import ConanFile, CMake, tools
 
 
-class HelloConan(ConanFile):
-    name = "hello"
+class BaseConan(ConanFile):
+    name = "base"
     version = "1.2.3"
     license = "<Put the package license here>"
     author = "<Put your name here> <And your email here>"
@@ -12,7 +12,6 @@ class HelloConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False]}
     default_options = {"shared": False}
-    requires = ("base/1.2.3")
     generators = "cmake"
     revision_mode = "scm"
 

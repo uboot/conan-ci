@@ -2,6 +2,7 @@ from conanci import database
 from conanci.manager import Manager
 
 import conanci.test.util as util
+import os
 import unittest
 
 # Requires:
@@ -15,14 +16,20 @@ class ManagerTest(unittest.TestCase):
         self.manager = Manager()
         database.reset_database()
 
-    def test_start(self):
+    def test_process(self):
+        build_output_file = os.path.join(os.path.dirname(__file__), "build_output.json")
+        with open(build_output_file) as f:
+            build_output = f.read()
+
         with database.session_scope() as session:
             build = util.create_build()
-            package = util.create_package({"package.requirement": True})
-            build.package = package
-            build.missing_packages.append(package)
-            build.missing_recipes.append(package.recipe)
-            session.add(package)
             session.add(build)
+            session.commit()
+            build_id = build.id
 
-        self.manager.process("")
+        self.manager.process(build_id, build_output)
+
+        with database.session_scope() as session:
+            build = session.query(database.Build).filter_by(id=build_id).first()
+            self.assertIsNotNone(build.package)
+            self.assertEqual(build.package.recipe.name, "hello")
